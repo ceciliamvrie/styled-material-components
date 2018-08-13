@@ -1,14 +1,14 @@
 import React, { Component } from 'react';
-import { Button, Dialog, DialogTitle, DialogBody, DialogFooter, ThemeProvider } from '../src';
+import { Button, Dialog, ThemeProvider } from '../src';
 
 const ExampleDialog = ({ title, closeDialog, ...dialogProps }) => (
   <Dialog {...dialogProps}>
-    {Boolean(title) && <DialogTitle>{title}</DialogTitle>}
-    <DialogBody>Dialog body goes here</DialogBody>
-    <DialogFooter>
+    {Boolean(title) && <Dialog.Title>{title}</Dialog.Title>}
+    <Dialog.Body>Dialog body goes here</Dialog.Body>
+    <Dialog.Footer>
       <Button onClick={closeDialog}>Cancel</Button>
       <Button onClick={closeDialog}>Confirm</Button>
-    </DialogFooter>
+    </Dialog.Footer>
   </Dialog>
 );
 

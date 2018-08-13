@@ -2,6 +2,7 @@ import React from 'react';
 import styled, { css } from 'styled-components';
 import classNames from 'classnames';
 import elevation from '../../mixins/elevation';
+import { DialogBody, DialogFooter, DialogTitle } from './index';
 import { Portal } from '../Portal';
 
 /*
@@ -10,6 +11,10 @@ import { Portal } from '../Portal';
  * actually controlled in the DialogComponent's state
  */
 class DialogComponent extends React.Component {
+  static Title = (props) => <DialogTitle {...props} />
+  static Body = (props) => <DialogBody {...props} />
+  static Footer = (props) => <DialogFooter {...props} />
+
   componentDidMount() {
     document.addEventListener('keydown', this.handleKeyDown);
   }
@@ -24,6 +29,7 @@ class DialogComponent extends React.Component {
       this.props.onClose && this.props.onClose();
     }
   };
+
   render() {
     const fullscreenDialogClass = classNames(this.props.className, 'smc-fullscreen-dialog', {
       open: this.props.open,
